@@ -1,6 +1,18 @@
 function [class]=fdbscan(xy,k,Eps)
 %class(i) = 0 when point i is an outlier
 %           1...65534 when part of a cluster (core or border)
+
+%if kdtree is not yet compiled, try to do so.
+if ~(exist('kdtree_build')==3)
+    warning('mex file ''kdtree_build'' not found. Attempt to compile them from source')
+    if ~exist('kdtree_build.cpp','file')
+        error('source file ''kdtree_build.cpp'' not found. Please include the path to its location, for example by using addpath.')
+        %addpath('..\kdtree-master\toolbox');
+    else
+        run kdtree_compile.m
+    end
+end
+
 class = zeros(size(xy,1),1,'uint16');
 cluster = 1;
 tree = kdtree_build(xy);
