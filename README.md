@@ -5,3 +5,5 @@ Instead of the suggested R*-tree it uses the matlab implementation of kd-trees b
 
 Example created with fdbscan_example.m:
 ![Demo Image](img/demo.png)
+
+[![View Fast DBSCAN using kdtrees on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://nl.mathworks.com/matlabcentral/fileexchange/68482-fast-dbscan-using-kdtrees)
